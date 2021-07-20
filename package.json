@@ -1,0 +1,70 @@
+{
+  "name": "traymoji",
+  "version": "1.0.0",
+  "author": "Coen Warmer",
+  "license": "GPL-3.0",
+  "description": "A tray app to quickly select a gitmoji",
+  "scripts": {
+    "dev": "yarn copy-static && electron-esbuild dev",
+    "build": "yarn copy-static && electron-esbuild build",
+    "copy-static": "cp -a static/. dist/main/",
+    "package": "electron-builder"
+  },
+  "build": {
+    "appId": "dev.coenwarmer.traymoji",
+    "productName": "traymoji",
+    "extraMetadata": {
+      "name": "traymoji",
+      "main": "main.js"
+    },
+    "files": [
+      {
+        "from": ".",
+        "filter": [
+          "package.json"
+        ]
+      },
+      {
+        "from": "dist/main"
+      },
+      {
+        "from": "dist/renderer"
+      }
+    ],
+    "win": {
+      "target": [
+        "zip"
+      ]
+    },
+    "mac": {
+      "target": [
+        "zip"
+      ]
+    },
+    "linux": {
+      "target": [
+        "zip"
+      ]
+    },
+    "directories": {
+      "buildResources": "resources"
+    },
+    "publish": null
+  },
+  "dependencies": {
+    "styled-components": "^5.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.37",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "electron": "^12.0.2",
+    "electron-builder": "^22.10.5",
+    "electron-esbuild": "1.x",
+    "electron-util": "^0.14.2",
+    "esbuild": "0.x",
+    "react": "^17.0.0",
+    "react-dom": "^17.0.0",
+    "typescript": "^4.2.3"
+  }
+}
